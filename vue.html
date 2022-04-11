@@ -1,0 +1,41 @@
+
+
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "component_test">
+         <testcomponent></testcomponent>
+      </div>
+      <div id = "component_test1">
+         <testcomponent></testcomponent>
+      </div>
+<script>
+ Vue.component('testcomponent',{
+data() {
+return {
+avatar: `/images/default.png`,
+name: "Saahil",
+},
+
+}
+,
+   template : `<div>
+<img :src="avatar">{{name}}</img>
+</div>`
+});
+var vm = new Vue({
+   el: '#component_test'
+});
+var vm1 = new Vue({
+   el: '#component_test1'
+});
+</script>
+
+   </body>
+</html>
+
+
+

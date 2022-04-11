@@ -1,0 +1,287 @@
+<html>
+<%- include('header') %>
+<head>
+<meta content="neons cool thing he made" name="og:description">
+<meta content="neon" name="og:title">
+<meta content="<%=color%>" name="theme-color">
+<meta name="og:image" content="https://api.xenith.pl/piesapi">
+</head>
+<style> 
+
+.email {
+    width: 186px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.email:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 20px;
+}
+
+.email:active {
+    color: #000
+}
+
+.email:active:after {
+    background: transparent;
+}
+
+.email:hover:before {
+    opacity: 1;
+}
+
+.email:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.password {
+    width: 186px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.password:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 20px;
+}
+
+.password:active {
+    color: #000
+}
+
+.password:active:after {
+    background: transparent;
+}
+
+.password:hover:before {
+    opacity: 1;
+}
+
+.password:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+.body {
+background-color: black;
+color: white;
+max-width: 300px;
+margin: auto;
+position: middle;
+}
+.login {
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.login:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 20px;
+}
+
+.login:active {
+    color: #000
+}
+
+.login:active:after {
+    background: transparent;
+}
+
+.login:hover:before {
+    opacity: 1;
+}
+
+.login:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.re {
+    width: 170px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.re:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 20px;
+}
+
+.re:active {
+    color: #000
+}
+
+.re:active:after {
+    background: transparent;
+}
+
+.re:hover:before {
+    opacity: 1;
+}
+
+.re:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+</style>
+<body class="body">
+<center>
+<main>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Login</h1>
+
+<form action="/register-google" method="POST">
+  <br>
+  <div>
+    <label for="password">  enter a password to go with you account!</label>
+    <button class="password" disabled>
+    <input type="password" id="password" name="password" class="password"required>
+    </button>
+    <% 
+    if (messages.error === 1) { %>
+ <h1 style="color:red;"> <b> Password incorrect </b></h1>
+<% } %>
+  </div>
+  <% if (messages.error) { %>
+ <h4 style="color:red;height:20;position:relative;"> <code> <%= messages.error %> </code></h4>
+<% } %>
+  <div>
+  <% if(!messages.error) { %>
+  <br>
+  <% } %>
+  <br>
+  <button type="submit" class="login" role="login">Login</button>
+  </div>
+</form>
+<br>
+<br>
+ <br>
+<a href="/register"><button class="re"> Register </button> </a>
+</main>
+</center>
+<% console.log(messages.error) %>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<h1> choose one pls </h1>
+<% const x = db.all()
+for(var i= 0; i > x.length;i++) { %>
+ <a href="/delete?number=<%i%>">
+ <%=x.name%>, <%=x.email%>
+</a>
+<br>
+<% } %>
