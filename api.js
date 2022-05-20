@@ -57,7 +57,7 @@ router.get('/posts/homepage', async (req,res) => {
 if(req.user) {
 let posts = await Post.find()
 //console.log(users, users.length)
-posts = posts.filter(p => p.author._id === req.user._id || (req.user.followers && req.user.followers.includes(p.author._id)));
+posts = posts.filter(p => p.author._id === req.user._id || (req.user.followers && (req.user.followers.includes(p.author._id) || p.author._id === "61dda0b3045633df350e22c2")));
 //users = users.pop()
 const users = await Promise.all(posts.map((p) => Users.findOne({ email: p.author.email })))
 //console.log([users], "users:array")

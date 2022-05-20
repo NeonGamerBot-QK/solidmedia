@@ -1,4 +1,6 @@
- window.addEventListener('load', init);
+const format = new window.Formatter();
+
+window.addEventListener('load', init);
 var month_name=new Array(12);
  (() => {
    
@@ -44,8 +46,9 @@ avatar.src = post.author.avatar || "/images/default.png"
 p.classList.add("post-text")
 post_container.classList.add("post-container")
 post_row.classList.add("post-row")
+        
 user_profile.classList.add("user-profile")
-p.innerHTML = post.description;
+p.innerHTML = format.getHTML( post.description );
 
 //  Appends
 inner_div_user.append(username)
@@ -53,6 +56,7 @@ inner_div_user.append(date_published)
 user_profile.append(avatar)
 user_profile.append(inner_div_user)
 post_row.append(user_profile)
+post_row.innerHTML +=  '<a href="#"><i class="fas fa-ellipsis-v"></i></a>'
 post_container.append(post_row)
 post_container.append(p)
 if(post.images && Array.isArray(post.images)) {
@@ -62,16 +66,28 @@ itag.src = buff // data:image/png;base64,...
 itag.classList.add("post-img")
 post_container.append(itag)
 })
-}
-window.addEventListener('load', () => {
-const m = 
-document.getElementsByClassName("main-content")[0]
-m.append(post_container)
-if(i === posts.length) {
-m.append(load_more_button)
-}
-})
 
+}
+post_container.innerHTML += `
+<div class="post-row">
+<div class="activity-icons"> 
+<div><i class="fa fas fa-regular fa-thumbs-up ${post.likes?.includes(post.author._id) ? 'liked' : "no-like"}"></i>${post.likes?.length || 0}</div>
+<div><img src="/images/comments.png" alt="0 comments">0</div>
+<div><img src="/images/share.png" alt="0  shares">0</div>
+</div>
+<div class="post-profile-icon">
+    <img src="${post.author.avatar || "/images/default.png"}"><i class="fas fa-caret-down"></i>
+</div>
+`
+// window.addEventListener('load', () => {
+    const m = 
+    document.getElementsByClassName("main-content")[0]
+    m.appendChild(post_container)
+    console.log(i, posts.length)
+    if(i+1 === posts.length) {
+        m.appendChild(load_more_button)
+        }
+    // })
 })
 	res(posts)
 
@@ -154,7 +170,7 @@ document.getElementById("img-input").click()
 
 document.getElementById('img-input').addEventListener("input", async (e) => {
 const index= post_body.imgs.length
-const imgData = await GetFileDate("#img-input", index)
+const imgData = await GetFileData("#img-input", index)
 console.log(index, imgData)
 post_body.images.push(imgData)
 const imgElement = document.createElement('img')

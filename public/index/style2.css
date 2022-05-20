@@ -360,6 +360,16 @@ background: transparent;
 width: 18px;
 margin-right: 10px;
 }
+.liked .fa {
+    color: #1876f2;
+}
+.no-liked .fa {
+    color: #626262;
+}
+.activity-icons div i {
+    width: 18px;
+    margin-right: 10px;
+    }
 .activity-icons div {
     display: inline-flex;
     align-items: center;

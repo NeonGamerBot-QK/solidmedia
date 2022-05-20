@@ -1,5 +1,6 @@
 init()
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+//FORMAT;
 async function main() {
 const user = JSON.parse(sessionStorage.user);
 const post_body = document.getElementById('post-input');
